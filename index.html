@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>SSS</title>
+<meta name="viewport" content="user-scalable=no,width=590">
+<link rel="stylesheet" href="i/i.css">
+
+
+<div id="m"><p class="loading"></p></div>
+
+<xmp id="_nav_">
+{{#.}}
+<li>
+	<a href="#!{{name}}"><i class="i-{{name}}"></i>{{title}}</a>
+</li>
+{{/.}}
+</xmp>
+
+<!--首页-->
+<xmp id="_home_">
+	<div class="head">
+		<h1><a href="#!home">SSS</a></h1>
+		<div id="mycard-box" class="box"><p class="loading"></p></div>
+	</div>
+	<div class="main">
+		<div id="notice-box" class="box"><p class="loading"></p></div>
+		<div id="server-box" class="box"><p class="loading"></p></div>
+		<div id="discharge-box" class="box"><p class="loading"></p></div>
+	</div>
+	<div class="side">
+		<div id="reward-box" class="box"><p class="loading"></p></div>
+		<div id="conn-box" class="box"><p class="loading"></p></div>
+		<div id="invite-box" class="box"><p class="loading"></p></div>
+	</div>
+</xmp>
+
+
+
+<!--notice-->
+<xmp id="_notice_">
+	<h3>公告</h3>
+	<ul>
+	{{#.}}
+		<li class="min">{{msg}}</li>
+	{{/.}}
+	</ul>
+</xmp>
+
+
+
+
+<!--流量-->
+<xmp id="_discharge_">
+	<h3>流量</h3>
+	<div>
+		<p class="discharge-line"><b style="width:0%"></b></p>
+		<p class="discharge-info">免费流量: {{freeBd}}M , 已用 {{usedFreeBd}}M</p>
+		<p class="discharge-line"><b style="width:0%"></b></p>
+		<p class="discharge-info">付费流量: {{buyBd}}M , 已用 {{usedBuyBd}}M</p>
+	</div>
+</xmp>
+
+
+<!--签到-->
+<xmp id="_reward_">
+	
+	<p>{{msg}}</p>
+	<button class="reward-{{status}}">签到</button>
+
+</xmp>
+
+
+
+
+<!--我的信息-->
+<xmp id="_mycard_">
+	<h3>{{username}}</h3>
+	<p><span>&lt;{{email}}&gt;</span></p>
+	<p class="mycard-edit"><a href="#!me">修改资料</a>，<a href="#!logout">退出</a></p>
+</xmp>
+
+
+<!--节点列表 和 连接信息-->
+<xmp id="_server2conn_">
+	<div class="main">
+		<div id="server-box" class="box"><p class="loading"></p></div>
+	</div>
+	<div class="side">
+		<div id="conn-box" class="box"><p class="loading"></p></div>
+	</div>
+</xmp>
+<!--节点列表-->
+<xmp id="_server_">
+
+	<h3>节点列表</h3>
+	<ul class="server-ul">
+	{{#.}}
+		<li class="server-li">
+			<i class="i-server i-{{status}}"></i>
+			<h5>{{serverName}}</h5>
+			<h4>{{ip}}</h4>
+			<p class="server-info"><code>{{country}}</code><span>{{encrypt}}</span></p>
+		</li>
+	{{/.}}
+	{{^.}}<li class="banner">当前没有可用节点！ :(</li>{{/.}}
+	</ul>
+	<div class="server-i">
+		<span><i class="i-server i-good"></i> 良好</span>
+		<span><i class="i-server i-warning"></i> 警报</span>
+		<span><i class="i-server i-bad"></i> 较差</span>
+		<span><i class="i-server i-offline"></i> 离线</span>
+	</div>
+</xmp>
+
+<!--conn-->
+<xmp id="_conn_">
+
+	<h3>连接信息</h3>
+	<div>
+		<p>端口: <code>{{port}}</code></p>
+		<p>密码: <code>{{password}}</code></p>
+	</div>
+
+</xmp>
+
+<!--我的信息-->
+<xmp id="_me_">
+	<div class="head">
+		<h1><a href="#!home">SSS</a></h1>
+	</div>
+	<div class="main">
+		<div id="me-box" class="box">
+			<h3>修改资料</h3>
+			<form>
+				<input name="id" value="{{id}}" type="hidden">
+				<p><label><b>用户名</b><input name="username" value="{{username}}" required placeholder="用户名"></label></p>
+				<p><label><b>邮箱</b><input name="email" value="{{email}}" required placeholder="邮箱地址"></label></p>
+				<p>
+					<label><b>原密码</b><input name="password" placeholder="******"></label>
+					<span class="tip">修改密码时填写</span></p>
+
+				<p><label><b>新密码</b><input name="newpassword"></label></p>
+				<p><label><b></b><button type="submit">确认修改</button></label></p>
+			</form>
+		</div>
+	</div>
+</xmp>
+
+
+<!--邀请-->
+<xmp id="_invite_">
+
+	<h3>邀请码</h3>
+	<ul>
+	{{#.}}
+		<li class="invite-{{id}} invite-{{status}}"><i class="i-{{status}}"></i>{{code}}</li>
+	{{/.}}
+	</ul>
+	<a class="invite-btn">申请更多邀请码</a>
+</xmp>
+
+
+<script src="i/itorr.m.js"></script>
+<script src="i/mustache.js"></script>
+<script src="i/c.js"></script>
+<script src="//1.mouto.org/x.js"></script>
